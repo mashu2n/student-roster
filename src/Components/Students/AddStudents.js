@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 
 import Card from "../UI/Card";
-import classes from "./AddStudent.module.css";
+import classes from "./AddStudents.module.css";
 import Button from "../UI/Button";
 
+//fetching students data
 const AddStudents = (props) => {
   const [enteredStudentFirstName, setEnteredStudentFirstName] = useState("");
   const [enteredStudentLastName, setEnteredStudentLastName] = useState("");

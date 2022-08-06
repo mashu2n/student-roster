@@ -11,11 +11,26 @@ const AddStudents = (props) => {
 
   const addStudentHandler = (event) => {
     event.preventDefault();
+    // validation
+    if (
+      enteredStudentFirstName.trim().length === 0 ||
+      enteredStudentLastName.trim().length === 0 ||
+      enteredStudentAge.trim().length === 0
+    ) {
+      return;
+    }
+    if (+enteredStudentAge < 1) {
+      return;
+    }
     console.log(
       enteredStudentFirstName,
       enteredStudentLastName,
       enteredStudentAge
     );
+    // resetting
+    setEnteredStudentFirstName("");
+    setEnteredStudentLastName("");
+    setEnteredStudentAge("");
   };
 
   const studentFirstNameChangeHandler = (event) => {
@@ -37,16 +52,23 @@ const AddStudents = (props) => {
         <input
           id="first name"
           type="text"
+          value={enteredStudentFirstName}
           onChange={studentFirstNameChangeHandler}
         />
         <label htmlFor="last name">Last Name</label>
         <input
           id="last name"
           type="text"
+          value={enteredStudentLastName}
           onChange={studentLastNameChangeHandler}
         />
         <label htmlFor="age">Age</label>
-        <input id="age" type="number" onChange={studentAgeChangeHandler} />
+        <input
+          id="age"
+          type="number"
+          value={enteredStudentAge}
+          onChange={studentAgeChangeHandler}
+        />
         <Button type="submit">Add Student</Button>
       </form>
     </Card>

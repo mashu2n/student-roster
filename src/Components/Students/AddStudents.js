@@ -23,7 +23,7 @@ const AddStudents = (props) => {
     if (+enteredStudentAge < 1) {
       return;
     }
-    console.log(
+    props.onAddStudent(
       enteredStudentFirstName,
       enteredStudentLastName,
       enteredStudentAge
@@ -49,16 +49,16 @@ const AddStudents = (props) => {
   return (
     <Card className={classes.input}>
       <form onSubmit={addStudentHandler}>
-        <label htmlFor="first name">First Name</label>
+        <label htmlFor="firstName">First Name</label>
         <input
-          id="first name"
+          id="firstName"
           type="text"
           value={enteredStudentFirstName}
           onChange={studentFirstNameChangeHandler}
         />
-        <label htmlFor="last name">Last Name</label>
+        <label htmlFor="lastName">Last Name</label>
         <input
-          id="last name"
+          id="lastName"
           type="text"
           value={enteredStudentLastName}
           onChange={studentLastNameChangeHandler}

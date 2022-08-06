@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Card from "../UI/Card";
 import classes from "./AddStudents.module.css";
 import Button from "../UI/Button";
+import ErrorModal from "../UI/ErrorModal";
 
 //fetching students data
 const AddStudents = (props) => {
@@ -47,32 +48,35 @@ const AddStudents = (props) => {
   };
 
   return (
-    <Card className={classes.input}>
-      <form onSubmit={addStudentHandler}>
-        <label htmlFor="firstName">First Name</label>
-        <input
-          id="firstName"
-          type="text"
-          value={enteredStudentFirstName}
-          onChange={studentFirstNameChangeHandler}
-        />
-        <label htmlFor="lastName">Last Name</label>
-        <input
-          id="lastName"
-          type="text"
-          value={enteredStudentLastName}
-          onChange={studentLastNameChangeHandler}
-        />
-        <label htmlFor="age">Age</label>
-        <input
-          id="age"
-          type="number"
-          value={enteredStudentAge}
-          onChange={studentAgeChangeHandler}
-        />
-        <Button type="submit">Add Student</Button>
-      </form>
-    </Card>
+    <div>
+      {<ErrorModal title="An error occured." message="Something went wrong." />}
+      <Card className={classes.input}>
+        <form onSubmit={addStudentHandler}>
+          <label htmlFor="firstName">First Name</label>
+          <input
+            id="firstName"
+            type="text"
+            value={enteredStudentFirstName}
+            onChange={studentFirstNameChangeHandler}
+          />
+          <label htmlFor="lastName">Last Name</label>
+          <input
+            id="lastName"
+            type="text"
+            value={enteredStudentLastName}
+            onChange={studentLastNameChangeHandler}
+          />
+          <label htmlFor="age">Age</label>
+          <input
+            id="age"
+            type="number"
+            value={enteredStudentAge}
+            onChange={studentAgeChangeHandler}
+          />
+          <Button type="submit">Add Student</Button>
+        </form>
+      </Card>
+    </div>
   );
 };
 

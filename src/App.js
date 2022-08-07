@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+import Wrapper from "./Components/Helper/Wrapper";
 import AddStudents from "./Components/Students/AddStudents";
 import StudentsList from "./Components/Students/StudentsList";
 
@@ -21,10 +22,10 @@ function App() {
   };
 
   return (
-    <div>
+    <Wrapper>
       <AddStudents onAddStudent={addStudentHandler} />
       <StudentsList students={studentsList} />
-    </div>
+    </Wrapper>
   );
 }
 
